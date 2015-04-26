@@ -43,5 +43,3 @@ def new_radix(number, old_base = 10 , new_base = 10):
     if new_base != 10:
         number = from_base_10(number, new_base)
     return number
-
-print new_radix(10, 8, 8)
