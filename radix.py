@@ -16,6 +16,7 @@ def to_base_10(number, base):
         figures.append(i)
     for k in range(len(figures)):
         result += (figures[k]) * base**(len(figures)-k-1)
+    result = str(result)
     if error:
         return 'ERROR: Not valid number'
     else:
@@ -23,6 +24,10 @@ def to_base_10(number, base):
 
 def from_base_10(number, base):
     values = []
+    try:
+        number = int(number)
+    except:
+        return 'ERROR: Not valid number'
     while number > 0:
         remainder = number % base
         values.append(remainder)
@@ -39,9 +44,4 @@ def new_radix(number, old_base = 10 , new_base = 10):
         number = from_base_10(number, new_base)
     return number
 
-def new_radix(number, old_base = 10 , new_base = 10):
-    if old_base != 10:
-        number = to_base_10(number, old_base)
-    if new_base != 10:
-        number = from_base_10(number, new_base)
-    return number
+print new_radix(10, 8, 8)
