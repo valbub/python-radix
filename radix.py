@@ -1,16 +1,15 @@
 __author__ = 'Valeria'
 
-symbol = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+symbol = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 def to_base_10(number, base):
     error = False
     result = 0
     figures = []
     number = str(number)
-    for k in range(len(number)):
-        i = symbol.index(number[k])
-        if i > 32:
-            i -= 26
+    number.lower()
+    for k in number:
+        i = symbol.index(k)
         if i > base:
             error = True
         figures.append(i)
@@ -18,7 +17,7 @@ def to_base_10(number, base):
         result += (figures[k]) * base**(len(figures)-k-1)
     result = str(result)
     if error:
-        return 'ERROR: Not valid number'
+        raise Exception('Not valid number')
     else:
         return result
 
@@ -27,7 +26,7 @@ def from_base_10(number, base):
     try:
         number = int(number)
     except:
-        return 'ERROR: Not valid number'
+        raise Exception('Not valid number')
     while number > 0:
         remainder = number % base
         values.append(remainder)
