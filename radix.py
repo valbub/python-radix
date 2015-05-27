@@ -10,7 +10,7 @@ def to_base_10(number, base):
     number.lower()
     for k in number:
         i = symbol.index(k)
-        if i > base:
+        if i >= base:
             error = True
         figures.append(i)
     for k in range(len(figures)):
