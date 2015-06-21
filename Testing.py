@@ -1,6 +1,14 @@
 __author__ = 'Valeria'
 import unittest
 from radix import *
+from timeit import timeit
+
+def testtime():
+    import radix
+    for i in range(10000):
+        t = radix.new_radix(i, 16, 32)
+
+timeit("testtime()", setup="from Testing import testtime")
 
 class TestRadixMethods(unittest.TestCase):
 
