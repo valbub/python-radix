@@ -3,13 +3,12 @@ import unittest
 from radix import *
 from timeit import timeit
 
-def testtime():
-    for i in range(1000000):
-        new_radix(i, 16, 32)
-
 class TestRadixPerformance(unittest.TestCase):
     def test_perf(self):
-        timeit(testtime, number=1)
+        def testtime():
+            for i in range(1000):
+                new_radix(i, 16, 32)
+        timeit(testtime, number=1000)
 
 class TestRadixMethods(unittest.TestCase):
 
