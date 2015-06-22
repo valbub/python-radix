@@ -4,11 +4,12 @@ from radix import *
 from timeit import timeit
 
 def testtime():
-    import radix
-    for i in range(10000):
-        t = radix.new_radix(i, 16, 32)
+    for i in range(1000000):
+        new_radix(i, 16, 32)
 
-timeit("testtime()", setup="from Testing import testtime")
+class TestRadixPerformance(unittest.TestCase):
+    def test_perf(self):
+        timeit(testtime, number=1)
 
 class TestRadixMethods(unittest.TestCase):
 
