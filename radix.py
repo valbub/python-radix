@@ -2,7 +2,7 @@ __author__ = 'Valeria'
 
 symbol = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-def to_base_10(number, base):
+def to_base_10(number, old_base):
     error = False
     result = 0
     figures = []
@@ -10,27 +10,27 @@ def to_base_10(number, base):
     number.lower()
     for k in number:
         i = symbol.index(k)
-        if i >= base:
+        if i >= old_base:
             error = True
         figures.append(i)
     for k in range(len(figures)):
-        result += (figures[k]) * base**(len(figures)-k-1)
+        result += (figures[k]) * old_base**(len(figures)-k-1)
     result = str(result)
     if error:
         raise Exception('Not valid number')
     else:
         return result
 
-def from_base_10(number, base):
+def from_base_10(number, new_base):
     values = []
     try:
         number = int(number)
     except:
         raise Exception('Not valid number')
     while number > 0:
-        remainder = number % base
+        remainder = number % new_base
         values.append(remainder)
-        number = number/base
+        number = number/new_base
     result = ''
     for i in range(len(values)):
         result += symbol[values[len(values)-1-i]]
