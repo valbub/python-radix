@@ -51,6 +51,3 @@ class Converter:
     def convert(self, number):
         result = cast(number, self.old_base, self.new_base)
         return result
-
-new = Converter(8, 16)
-print new.convert(10)
