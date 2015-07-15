@@ -7,7 +7,7 @@ class TestRadixPerformance(unittest.TestCase):
     def test_perf(self):
         def testtime():
             for i in range(1000):
-                new_radix(i, 16, 32)
+                cast(i, 16, 32)
         timeit(testtime, number=1000)
 
 class TestRadixMethods(unittest.TestCase):
@@ -18,8 +18,8 @@ class TestRadixMethods(unittest.TestCase):
     def test_from_base_10(self):
         self.assertEqual(from_base_10('1465324', 15), '1de284')
 
-    def test_new_radix(self):
-        self.assertEqual(new_radix('51330od', 26, 36), 'privet')
+    def test_cast(self):
+        self.assertEqual(cast('51330od', 26, 36), 'privet')
 
     def test_from_base_10_exception(self):
         with self.assertRaises(Exception):
@@ -29,9 +29,9 @@ class TestRadixMethods(unittest.TestCase):
         with self.assertRaises(Exception):
             to_base_10('a453', 9)
 
-    def test_new_radix_exception(self):
+    def test_cast_exception(self):
         with self.assertRaises(Exception):
-            new_radix('9453', 9, 5)
+            cast('9453', 9, 5)
 
 if __name__ == '__main__':
     unittest.main()
