@@ -36,9 +36,21 @@ def from_base_10(number, new_base):
         result += symbol[values[len(values)-1-i]]
     return result
 
-def new_radix(number, old_base = 10 , new_base = 10):
+def cast(number, old_base, new_base):
     if old_base != 10:
         number = to_base_10(number, old_base)
     if new_base != 10:
         number = from_base_10(number, new_base)
     return number
+
+
+class Converter:
+    def __init__(self, old_base, new_base):
+        self.old_base = old_base
+        self.new_base = new_base
+    def convert(self, number):
+        result = cast(number, self.old_base, self.new_base)
+        return result
+
+new = Converter(8, 16)
+print new.convert(10)
