@@ -3,37 +3,27 @@ __author__ = 'Valeria'
 symbol = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 def to_base_10(number, old_base):
-    error = False
     result = 0
-    figures = []
-    number = str(number)
-    number.lower()
-    for k in number:
-        i = symbol.index(k)
+    figures = str(number).lower()[::-1]
+    for index, elem in enumerate(figures):
+        if elem not in symbol:
+            raise Exception('Not valid number')
+        i = symbol.index(elem)
         if i >= old_base:
-            error = True
-        figures.append(i)
-    for k in range(len(figures)):
-        result += (figures[k]) * old_base**(len(figures)-k-1)
-    result = str(result)
-    if error:
-        raise Exception('Not valid number')
-    else:
-        return result
+            raise Exception('Not valid number')
+        result += i * old_base**index
+    return str(result)
 
 def from_base_10(number, new_base):
-    values = []
+    result = ''
     try:
         number = int(number)
     except:
         raise Exception('Not valid number')
     while number > 0:
         remainder = number % new_base
-        values.append(remainder)
+        result = symbol[remainder] + result
         number = number/new_base
-    result = ''
-    for i in range(len(values)):
-        result += symbol[values[len(values)-1-i]]
     return result
 
 def cast(number, old_base, new_base):
@@ -51,3 +41,5 @@ class Converter:
     def convert(self, number):
         result = cast(number, self.old_base, self.new_base)
         return result
+
+print to_base_10('10', 2)
