@@ -41,5 +41,3 @@ class Converter:
     def convert(self, number):
         result = cast(number, self.old_base, self.new_base)
         return result
-
-print to_base_10('10', 2)
