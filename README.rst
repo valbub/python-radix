@@ -9,7 +9,7 @@ Python-radix usage examples
 ---------------------------
 Python-radix has both procedural and object-oriented solutions.
 
-** Procedural way example **
+**Procedural way example**
 
     # to convert number 4 from base 10 to base 2
 
@@ -19,7 +19,7 @@ Python-radix has both procedural and object-oriented solutions.
 
 You can use both str and int types for the number you convert.
 
-** Object oriented way example **
+**Object oriented way example**
 
     # create an object to convert numbers from one base to another (here it converts from base 10 to base 2)
 
