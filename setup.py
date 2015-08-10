@@ -24,6 +24,6 @@ classifiers=[
     'Programming Language :: Python :: 2.7',
 ],
 keywords='radix numbers',
-packages=['radix'],
+packages=['anyradix'],
 install_requires=[],
 platforms=['Any'])
