@@ -1,6 +1,8 @@
 __author__ = 'Valeria'
 import unittest
-from radix import *
+from anyradix import *
+from anyradix.anyradix import to_base_10
+from anyradix.anyradix import from_base_10
 from timeit import timeit
 
 class TestRadixPerformance(unittest.TestCase):
