@@ -27,6 +27,8 @@ def from_base_10(number, new_base):
     return result
 
 def cast(number, old_base, new_base):
+    if old_base==1 or new_base==1:
+        raise Exception('Not valid base')
     if old_base != 10:
         number = to_base_10(number, old_base)
     if new_base != 10:
