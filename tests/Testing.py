@@ -1,4 +1,3 @@
-__author__ = 'Valeria'
 import unittest
 from anyradix import *
 from anyradix.anyradix import to_base_10
