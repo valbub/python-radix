@@ -1,4 +1,3 @@
-__author__ = 'Valeria'
 # -*- coding: utf-8 -*-
 
 from anyradix import Converter
