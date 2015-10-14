@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='python-radix',
-version='0.1.0',
+version='0.1.1',
 description='A tool for conversion numbers from one base to another',
 long_description=long_description,
 url='https://github.com/valbub/python-radix',
